@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <conio.h>
 #include <windows.h>
+#include <stdlib.h>
+#include <time.h>
 
 #define WIDTH 20
 #define HEIGHT 10
@@ -26,6 +28,7 @@ void draw() {
 }
 
 int main() {
+    srand(time(NULL));
     while (1) {
         if (_kbhit()) {
             char c = _getch();
