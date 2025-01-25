@@ -43,11 +43,14 @@ int main() {
             if (bulletY < 0) { bulletX = -1; bulletY = -1; }
         }
 
-        // 更新敌机位置
-        enemyY++;
-        if (enemyY >= HEIGHT) {
-            enemyX = rand() % WIDTH;
-            enemyY = 0;
+        // 更新敌机位置（速度减半）
+        static int enemyCounter = 0;
+        if (enemyCounter++ % 2 == 0) {
+            enemyY++;
+            if (enemyY >= HEIGHT) {
+                enemyX = rand() % WIDTH;
+                enemyY = 0;
+            }
         }
 
         // 检测碰撞
